@@ -1,0 +1,9 @@
+# IntelliJ Idea
+.idea/
+*.iml
+
+#mac
+.DS_Store
+
+#gradle
+.gradle
