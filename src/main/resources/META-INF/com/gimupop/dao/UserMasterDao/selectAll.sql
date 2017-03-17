@@ -1,0 +1,1 @@
+SELECT user_id,user_name,password FROM user_master;
