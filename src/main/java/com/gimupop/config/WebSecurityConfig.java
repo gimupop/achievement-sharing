@@ -30,8 +30,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 // ログイン処理の設定
                 .formLogin()
+                .loginProcessingUrl("/login")
                 // ログイン処理のURL
-                .loginPage("/login")
+                .loginPage("/feed")
+                .defaultSuccessUrl("/feed")
                 // usernameのパラメタ名
                 .usernameParameter("username")
                 // passwordのパラメタ名
