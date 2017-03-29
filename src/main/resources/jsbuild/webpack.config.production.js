@@ -2,10 +2,10 @@ const webpack = require("webpack")
 
 module.exports = {
   entry: [
-    '../static/js/feed.js',
+    './js/feed.js',
   ],
   output: {
-    path: '../static/js',
+    path: './js',
     filename: 'app.js'
   },
   module: {

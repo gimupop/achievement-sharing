@@ -6,9 +6,12 @@ buildscript {
         mavenCentral()
         maven { url "https://repo.spring.io/snapshot" }
         maven { url "https://repo.spring.io/milestone" }
+        maven { url "https://plugins.gradle.org/m2/"}
+
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath "com.moowork.gradle:gradle-node-plugin:1.1.1"
     }
 }
 
@@ -16,6 +19,8 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
+apply plugin: 'com.moowork.node'
+
 
 jar {
     baseName = 'achivemrnt_sharing'
@@ -54,7 +59,9 @@ dependencies {
     testCompile("org.springframework.boot:spring-boot-starter-test")
     testCompile("org.springframework.security:spring-security-test")
     testCompile("com.h2database:h2")
-    testCompile "junit:junit:4.12"
+    testCompile("junit:junit:4.12")
+
+
 }
 
 
@@ -72,3 +79,22 @@ task wrapper(type: Wrapper) {
 
 processResources.destinationDir = compileJava.destinationDir
 compileJava.dependsOn processResources
+
+
+/*
+node {
+    version = '7.2.1'
+    npmVersion = '3.10.10'
+    download = true
+    workDir = file("src/main/resources/jsbuild")
+    nodeModulesDir = file("src/main/resources/jsbuild")
+}
+
+task jsBuild(type: NodeTask) {
+    script = file("src/main/resources/jsbuild/webpack.config.production.js")
+    args = ['run', 'build']
+}
+
+npm_install.dependsOn(npm_cache_clean)
+
+classes.dependsOn jsBuild*/
